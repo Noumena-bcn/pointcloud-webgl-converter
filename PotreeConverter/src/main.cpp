@@ -61,7 +61,8 @@ struct PotreeArguments {
 	string title = "PotreeViewer";
 	string description = "";
 	bool edlEnabled = false;
-	bool showSkybox = false;
+//	bool showSkybox = false;
+	int backgroundType = 2;
 	string material = "RGB";
     string executablePath;
 	int storeSize;
@@ -95,7 +96,8 @@ PotreeArguments parseArguments(int argc, char **argv){
 	args.addArgument("title", "Page title");
 	args.addArgument("description", "Description to be shown in the page.");
 	args.addArgument("edl-enabled", "Enable Eye-Dome-Lighting.");
-	args.addArgument("show-skybox", "");
+//	args.addArgument("show-skybox", "");
+	args.addArgument("background-type", "skybox = 0, gradient = 1, black = 2, white = 3");
 	args.addArgument("material", "RGB, ELEVATION, INTENSITY, INTENSITY_GRADIENT, CLASSIFICATION, RETURN_NUMBER, SOURCE, LEVEL_OF_DETAIL");
 	args.addArgument("store-size", "A node is split once more than store-size points are added. Reduce for better results at cost of performance. Default is 20000");
 	args.addArgument("flush-limit", "Flush after X points. Default is 10000000");
@@ -224,7 +226,10 @@ PotreeArguments parseArguments(int argc, char **argv){
 	a.title = args.get("title").as<string>();
 	a.description = args.get("description").as<string>();
 	a.edlEnabled = args.has("edl-enabled");
-	a.showSkybox = args.has("show-skybox");
+//	a.backgroundType = args.has("background-type");
+	if (args.has("background-type")) {
+		a.backgroundType = args.get("background-type").as<int>();
+	}
 	a.material = args.get("material").as<string>("RGB");
 
 	vector<string> validMaterialNames = {"RGB", "ELEVATION", "INTENSITY", "INTENSITY_GRADIENT", "CLASSIFICATION", "RETURN_NUMBER", "SOURCE", "LEVEL_OF_DETAIL"};
@@ -313,7 +318,7 @@ int main(int argc, char **argv){
 		pc.description = a.description;
 		pc.edlEnabled = a.edlEnabled;
 		pc.material = a.material;
-		pc.showSkybox = a.showSkybox;
+		pc.backgroundType = a.backgroundType;
 		pc.storeSize = a.storeSize;
 		pc.flushLimit = a.flushLimit;
 

@@ -1,1 +1,1 @@
-docker run -v $PWD/test/input:/input -v $PWD/test/output:/output 2ad215d01966 PotreeConverter /input/ripple.las -p perugia -o /output/ripple
+docker run --rm -v $PWD/test/input:/input -v $PWD/test/output:/output pointcloud-webgl-converter PotreeConverter /input/ripple.las -p perugia -o /output/ripple

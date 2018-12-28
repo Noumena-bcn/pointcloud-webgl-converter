@@ -199,10 +199,27 @@ void PotreeConverter::generatePage(string name){
 				out << std::boolalpha;
 				out << "\t\t" << "document.title = \"" << title << "\";\n";
 				out << "\t\t" << "viewer.setEDLEnabled(" << edlEnabled << ");\n";
-				if(showSkybox){
-					out << "\t\t" << "viewer.setBackground(\"skybox\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
-				}else{
-					out << "\t\t" << "viewer.setBackground(\"gradient\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+//				if(showSkybox){
+//					out << "\t\t" << "viewer.setBackground(\"skybox\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+//				}else{
+//					out << "\t\t" << "viewer.setBackground(\"black\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+//				}
+				switch (this->backgroundType){
+                    case 0:
+                        out << "\t\t" << "viewer.setBackground(\"skybox\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+                        break;
+				    case 1:
+                        out << "\t\t" << "viewer.setBackground(\"gradient\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+                        break;
+                    case 2:
+                        out << "\t\t" << "viewer.setBackground(\"black\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+                        break;
+                    case 3:
+                        out << "\t\t" << "viewer.setBackground(\"white\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+                        break;
+					default:
+						out << "\t\t" << "viewer.setBackground(\"gradient\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
+                        break;
 				}
 				
 				string descriptionEscaped = string(description);

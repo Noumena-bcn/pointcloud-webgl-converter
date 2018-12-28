@@ -53,7 +53,8 @@ public:
 	string title = "PotreeViewer";
 	string description = "";
 	bool edlEnabled = false;
-	bool showSkybox = false;
+//	bool showSkybox = false;
+	int backgroundType = 2;
 	string material = "RGB";
     string executablePath;
 	int storeSize = 20'000;
