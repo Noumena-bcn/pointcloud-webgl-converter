@@ -50,7 +50,7 @@ public:
 	string projection = "";
 	bool sourceListingOnly = false;
 	ConversionQuality quality = ConversionQuality::DEFAULT;
-	string title = "PotreeViewer";
+	string title = "Noumena PointCloud Viewer";
 	string description = "";
 	bool edlEnabled = false;
 //	bool showSkybox = false;

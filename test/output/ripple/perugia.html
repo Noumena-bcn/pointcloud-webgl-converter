@@ -30,7 +30,8 @@
 	<script src="libs/jstree/jstree.js"></script>
 	<script src="libs/potree/potree.js"></script>
 	<script src="libs/plasio/js/laslaz.js"></script>
-	
+	<script src="libs/pointcloudWebGL/pointcloudWebGL.js"></script>
+
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
 		document.title = "";
 		viewer.setEDLEnabled(false);
@@ -44,7 +45,7 @@
 	
 	<script>
 	
-		window.viewer = new Potree.Viewer(document.getElementById("potree_render_area"));
+		window.viewer = new pointcloudWebGL.Viewer(document.getElementById("potree_render_area"));
 		
 		viewer.setEDLEnabled(true);
 		viewer.setFOV(60);
