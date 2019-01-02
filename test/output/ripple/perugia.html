@@ -13,6 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="libs/openlayers3/ol.css">
 	<link rel="stylesheet" type="text/css" href="libs/spectrum/spectrum.css">
 	<link rel="stylesheet" type="text/css" href="libs/jstree/themes/mixed/style.css">
+	<link rel="stylesheet" type="text/css" href="libs/pointcloudWebGL/pointcloudWebGL.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -33,14 +38,16 @@
 	<script src="libs/pointcloudWebGL/pointcloudWebGL.js"></script>
 
 	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
-		document.title = "";
-		viewer.setEDLEnabled(false);
-		viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];
-		viewer.setDescription(``);
-	
-	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+		<!--document.title = "";-->
+		<!--viewer.setEDLEnabled(false);-->
+		<!--viewer.setBackground("black"); // ["skybox", "gradient", "black", "white"];-->
+		<!--viewer.setDescription(``);-->
+	<div class="pointcloudWebGL_nav pointcloudWebGL_col_container" id="pointcloudWebGL_nav_container"></div>
+	<div class="potree_container">
 		<div id="potree_render_area"></div>
-		<div id="potree_sidebar_container"> </div>
+		<div id="potree_sidebar_container"></div>
+		<div id="pointcloudWebGL_stats_container"> </div>
+
 	</div>
 	
 	<script>
