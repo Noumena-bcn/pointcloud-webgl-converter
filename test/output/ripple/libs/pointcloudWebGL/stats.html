@@ -1,1 +1,276 @@
-<div id="stats_root" ></div>
+<div id="page-stats" class="content pure-g">
+    <div id="nav-stats" class="pure-u">
+        <a href="#" class="nav-menu-button">Menu</a>
+        <div class="nav-stats-inner">
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-heading">
+                        <span class="pure-menu-tag">
+                            <span class="pure-menu-tag-small uppercase">data-gathering<br></span>Summary
+                        </span>
+                    </li>
+                    <li class="pure-menu-item"><a href="#summary-urban-information" class="pure-menu-link">Urban Information</a></li>
+                    <li class="pure-menu-item"><a href="#summary-urban-geo_localization" class="pure-menu-link menu-report">Geo-localization</a></li>
+                    <li class="pure-menu-heading">
+                        <span class="pure-menu-tag">
+                            <span class="pure-menu-tag-small uppercase">point-cloud<br></span>Process Report
+                        </span>
+                    </li>
+                    <li class="pure-menu-item"><a href="#summary-processing-parameters" class="pure-menu-link menu-report">Processing Parameters</a>
+                    </li>
+                    <li class="pure-menu-item"><a href="#summary-survey-data" class="pure-menu-link">Survey Data</a></li>
+                    <li class="pure-menu-item"><a href="#summary-sensor-information" class="pure-menu-link">Sensor Information</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Camera Overlap</a></li>
+                    <li class="pure-menu-heading">
+                        <span class="pure-menu-tag">
+                            <span class="pure-menu-tag-small uppercase">remote-sensing<br></span>Metrics
+                        </span>
+                    </li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">RGB</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">NDVI</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Thermal</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Metrics Overlay</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="main-stats" class="pure-u-1">
+        <div id="summary" class="main-stats">
+            <div class="pure-g">
+                <div class="main-stats-header pure-u-1-1">
+                    <h2>Data Gathering</h2>
+                    <p>summary</p>
+                </div>
+                <div id="summary-urban-information" class="main-stats-content pure-u-2-5">
+                    <div class="pure-u-1-1">
+                        <h3>Urban Information</h3>
+                    </div>
+                    <div class="pure-u-1-1">
+                        <p><b>Address:</b></p>
+                        <p id="address">Passeig de Sant Joan (Alibei - Ausias Marc)</p>
+                        <p><b>Localization:</b></p>
+                        <p id="localization">41.392667, 2.178529</p>
+                        <p><b>Date:</b> 30-10-17</p>
+                        <p id="date">30-10-17</p>
+                        <p><b>Time:</b></p>
+                        <p id="time">12.10-14.25 (2 hours and 15 minutes)</p>
+                        <p><b>Periemter:</b></p>
+                        <p id="perimeter"><b>Periemter:</b>261 mts</p>
+                        <p><b>Area:</b></p>
+                        <p id="area">3100 mts</p>
+                    </div>
+                </div>
+                <div id="summary-urban-geo_localization" class="main-stats-content pure-u-3-5">
+                    <div class="pure-u-1-1">
+                        <h3>Geo-Localization</h3>
+                    </div>
+                    <div id="map" class="pure-u-1-1"></div>
+                    <script>
+                        mapboxgl.accessToken = 'pk.eyJ1Ijoic3RhcnNrIiwiYSI6ImNqcW1uYThkcjB5OXU0MnFuMmNsd2F6bm4ifQ.UVn8HyKNEtPabiMlYwJfPw';
+                        let map = new mapboxgl.Map({
+                            container: 'map',
+                            center: [2.178393, 41.392741],
+                            zoom: 14,
+                            style: 'mapbox://styles/mapbox/dark-v9',
+                        });
+                        map.on('load', function () {
+                            map.resize();
+                            map.addLayer({
+                                "id": "route",
+                                "type": "line",
+                                "source": {
+                                    "type": "geojson",
+                                    "data": {
+                                        "type": "Feature",
+                                        "properties": {},
+                                        "geometry": {
+                                            "type": "LineString",
+                                            "coordinates": [
+                                                [2.178098, 41.393159],
+                                                [2.177900, 41.392958],
+                                                [2.178929, 41.392201],
+                                                [2.179117, 41.392370],
+                                                [2.178098, 41.393159]
+                                            ]
+                                        }
+                                    }
+                                },
+                                "layout": {
+                                    "line-join": "round",
+                                    "line-cap": "round"
+                                },
+                                "paint": {
+                                    "line-color": "#FFFFFF",
+                                    "line-width": 5
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div id="report" class="main-stats">
+            <div class="pure-g">
+                <div class="main-stats-header pure-u-1-1">
+                    <h2>Point-Cloud</h2>
+                    <p>process report</p>
+                </div>
+                <div id="summary-processing-parameters" class="main-stats-content pure-u-1-1">
+                    <div class="main-stats-sub-header pure-u-1-1">
+                        <h3>Processing Parameter</h3>
+                    </div>
+                    <div class="pure-g">
+                        <div class="pure-u-1-2">
+                            <div class="main-stats-container pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="pure-g">
+                                        <div class="pure-u-1-2">
+                                            <div>
+                                                <h4>Point Cloud<br>Parameters</h4>
+                                                <h5>RMS reprojected error:</h5>
+                                                <p>0.15745 (0.369343 pix)</p>
+                                                <h5>Max reprojected error:</h5>
+                                                <p>0.479672 (16.1732 pix)</p>
+                                            </div>
+                                        </div>
+                                        <div class="pure-u-1-2">
+                                            <h1>1,807,473<p>of</p>1,980,628</h1>
+                                            <p>calculated points</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <div class="main-stats-container pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="pure-g">
+                                        <div class="pure-u-1-2">
+                                            <h4>Alignment<br>Parameters</h4>
+                                            <h5>Adaptive camera model fitting:</h5>
+                                            <p>Yes</p>
+                                            <h5>Alignment time:</h5>
+                                            <p>44 minutes 21 seconds</p>
+                                        </div>
+                                        <div class="pure-u-1-2">
+                                            <h1>100,000</h1>
+                                            <p>of key point limit</p>
+                                            <h1>10,000</h1>
+                                            <p>of tie point limit </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <div class="main-stats-container pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="pure-g">
+                                        <div class="pure-u-1-2">
+                                            <div>
+                                                <h4>Depth maps<br>Parameters</h4>
+                                                <h5>Quality:</h5>
+                                                <p>Ultra High</p>
+                                                <h5>Filtering mode:</h5>
+                                                <p>Aggressive</p>
+                                                <h5>Processing time:</h5>
+                                                <p>1 hours 32 minutes/p>
+                                            </div>
+                                        </div>
+                                        <div class="pure-u-1-2">
+                                            <h1>175<p>of</p>178</h1>
+                                            <p>Depth maps generated</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <div class="main-stats-container pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="pure-g">
+                                        <div class="pure-u-1-2">
+                                            <h4>Alignment<br>Parameters</h4>
+                                            <h5>Quality:</h5>
+                                            <p>Ultra High</p>
+                                            <h5>Depth filtering:</h5>
+                                            <p>Aggressive</p>
+                                            <h5>Dense cloud generation:</h5>
+                                            <p>52 minutes 20 seconds</p>
+                                        </div>
+                                        <div class="pure-u-1-2">
+                                            <h1>4,075,720</h1>
+                                            <p>points generated from</p>
+                                            <h1>1,807,473</h1>
+                                            <p>Tie points</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="summary-survey-data" class="main-stats-content pure-u-1-1">
+                    <div class="main-stats-sub-header pure-u-1-1">
+                        <h3>Survey Data</h3>
+                    </div>
+                    <div class="pure-g">
+                        <div class="pure-u-1-1">
+                            <div class="main-stats-container pure-g">
+                                <div class="pure-u-1-4">
+                                    <p>Date</p>
+                                    <h1>30-10-2018</h1>
+                                </div>
+                                <div class="pure-u-1-4">
+                                    <p>Ground resolution:</p>
+                                    <h1>2.7 cm/pix</h1>
+                                </div>
+                                <div class="pure-u-1-4">
+                                    <p>Camera stations</p>
+                                    <h1>175</h1>
+                                </div>
+                                <div class="pure-u-1-4">
+                                    <p>Tie points</p>
+                                    <h1>1,807,473</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="summary-sensor-information" class="main-stats-content pure-u-1-1">
+                    <div class="main-stats-sub-header pure-u-1-1">
+                        <h3>Sensor Information</h3>
+                    </div>
+                    <div class="pure-g">
+                        <div class="pure-u-1-1">
+                            <div class="main-stats-container pure-g">
+                                <div class="pure-u-1-4">
+                                    <p>Type</p>
+                                    <h1>Fisheye</h1>
+                                </div>
+                                <div class="pure-u-1-4">
+                                    <p>Resolution</p>
+                                    <h1>1280 x 960</h1>
+                                </div>
+                                <div class="pure-u-1-4">
+                                    <p>Focal Length</p>
+                                    <h1>3.98 mm</h1>
+                                </div>
+                                <div class="pure-u-1-4">
+                                    <p>Pixel Size</p>
+                                    <h1>3.75 x 3.75 μm</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+

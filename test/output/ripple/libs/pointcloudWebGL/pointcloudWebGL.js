@@ -12,8 +12,9 @@ if (document.currentScript.src) {
     console.error('pointcloudWebGL was unable to find its script path using document.currentScript. Is Potree included with a script tag? Does your browser support this function?');
 }
 
-pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
+pointcloudWebGL.resourcePath = pointcloudWebGL.scriptPath + '/resources';
 
+pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
 
     navMenu (domElement, amountItems= 4, position='center') {
         if(position === 'center'){
@@ -73,18 +74,17 @@ pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
             return false;
         }
         let renderArea = $('#potree_render_area');
-        let statsContainer = $('#pointcloudWebGL_stats_container');
+        let sidebar = $('#potree_sidebar_container');
+
         let isVisible = renderArea.css('right') !== '0px';
 
         if (isVisible) {
             renderArea.css('right', '0px');
-            statsContainer.css('top', '100%');
+            sidebar.css('right', '-301px');
         } else if (!isVisible){
             renderArea.css('right', '300px');
-            statsContainer.css('top', '100%');
-
+            sidebar.css('right', '0px');
         }
-
     };
 
     toggleStats (event) {
@@ -95,11 +95,11 @@ pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
         catch (e) {
             return false;
         }
-        let renderArea = $('#potree_render_area');
         let statsContainer = $('#pointcloudWebGL_stats_container');
         let isVisible = statsContainer.css('top') !== '0px';
-        renderArea.css('top', '100%');
-        statsContainer.css('top', '0%');
+        if(isVisible){
+            statsContainer.css('top', '0%');
+        }
     };
 
     toggleViewer (event) {
@@ -110,11 +110,12 @@ pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
         catch (e) {
             return false;
         }
-        let renderArea = $('#potree_render_area');
         let statsContainer = $('#pointcloudWebGL_stats_container');
-        let isVisible = statsContainer.css('top') !== '0px';
-        renderArea.css('top', '0%');
-        statsContainer.css('top', '100%');
+        let isVisible = statsContainer.css('top') !== '100%';
+
+        if(isVisible){
+            statsContainer.css('top', '100%');
+        }
     };
 
     loadGUI(callback){
@@ -149,7 +150,9 @@ pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
 
 
             let imgMenuToggle = document.createElement('img');
-            imgMenuToggle.src = new URL(Potree.resourcePath + '/icons/menu_button.svg').href;
+            imgMenuToggle.src = new URL(pointcloudWebGL.resourcePath + '/icons/menu_expand_button.svg').href;
+            console.log(pointcloudWebGL.resourcePath);
+
             imgMenuToggle.onclick = this.toggleSidebar;
             imgMenuToggle.classList.add('potree_menu_toggle');
             imgMenuToggle.style.right = '0px';
@@ -208,14 +211,13 @@ pointcloudWebGL.Viewer = class pointcloudWebGLViewer extends Potree.Viewer{
 
         });
 
-
-
         let statsContainer = $(`#pointcloudWebGL_stats_container`);
         statsContainer.load(new URL(pointcloudWebGL.scriptPath + '/stats.html').href, () => {
 
             statsContainer.css('width', '100%');
             statsContainer.css('height', '100%');
             statsContainer.css('top', '100%');
+
             let navMenu_item_1 = $(`#navMenu_item_1`);
             navMenu_item_1.click(this.toggleStats);
 
