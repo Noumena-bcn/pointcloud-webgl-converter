@@ -242,6 +242,11 @@ a {
     /*border-top: 1px solid #FFFFFF;*/
 }
 
+.main-stats-sub-header-diagram{
+    padding: 0.5em 0 0.5em 0;
+    /*border-top: 1px solid #FFFFFF;*/
+}
+
 .main-stats-content {
     padding: 0 auto;
     margin: 0.5em 0;
@@ -257,16 +262,27 @@ a {
     padding-bottom: 1em;
 }
 
-#report {
+#report,
+#metrics {
     padding-top: 5em;
 }
 
-#summary h1, #summary h2, #summary h3, #report h1, #report h2, #report h3 {
+#summary h1,
+#summary h2,
+#summary h3,
+#report h1,
+#report h2,
+#report h3,
+#metrics h1,
+#metrics h2,
+#metrics h3 {
     color: white;
     margin: 0.01em 0.5em;
 }
 
-#summary h4, #report h4 {
+#summary h4,
+#report h4,
+#metrics h4 {
     color: white;
     margin: 0.01em 0.5em;
     padding-bottom: 1em;
@@ -275,7 +291,9 @@ a {
     text-transform: uppercase;
 }
 
-#summary h5, #report h5 {
+#summary h5,
+#report h5,
+#metrics h5 {
     font-size: x-small;
     font-style: italic;
     color: #4F4F4F;
@@ -283,7 +301,9 @@ a {
     text-transform: uppercase;
 }
 
-#summary p, #report p {
+#summary p,
+#report p,
+#metrics p{
     color: #4F4F4F;
     margin: 0.01em 0.9em;
     text-transform: uppercase;
@@ -354,5 +374,51 @@ a {
     }
 }
 
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
 
+.link {
+    stroke: #999;
+    stroke-opacity: .6;
+}
+
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
+
+.area {
+    fill: #567656;
+    clip-path: url(#clip);
+}
+
+.area2 {
+    fill: #76626C;
+    clip-path: url(#clip);
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    stroke: #18bc9c;
+    stroke-width: 4px;
+}
 

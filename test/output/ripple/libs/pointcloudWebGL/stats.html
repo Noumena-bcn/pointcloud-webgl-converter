@@ -9,17 +9,22 @@
                             <span class="pure-menu-tag-small uppercase">data-gathering<br></span>Summary
                         </span>
                     </li>
-                    <li class="pure-menu-item"><a href="#summary-urban-information" class="pure-menu-link">Urban Information</a></li>
-                    <li class="pure-menu-item"><a href="#summary-urban-geo_localization" class="pure-menu-link menu-report">Geo-localization</a></li>
+                    <li class="pure-menu-item"><a href="#summary-urban-information" class="pure-menu-link">Urban
+                        Information</a></li>
+                    <li class="pure-menu-item"><a href="#summary-urban-geo_localization"
+                                                  class="pure-menu-link menu-report">Geo-localization</a></li>
                     <li class="pure-menu-heading">
                         <span class="pure-menu-tag">
                             <span class="pure-menu-tag-small uppercase">point-cloud<br></span>Process Report
                         </span>
                     </li>
-                    <li class="pure-menu-item"><a href="#summary-processing-parameters" class="pure-menu-link menu-report">Processing Parameters</a>
+                    <li class="pure-menu-item"><a href="#summary-processing-parameters"
+                                                  class="pure-menu-link menu-report">Processing Parameters</a>
                     </li>
-                    <li class="pure-menu-item"><a href="#summary-survey-data" class="pure-menu-link">Survey Data</a></li>
-                    <li class="pure-menu-item"><a href="#summary-sensor-information" class="pure-menu-link">Sensor Information</a></li>
+                    <li class="pure-menu-item"><a href="#summary-survey-data" class="pure-menu-link">Survey Data</a>
+                    </li>
+                    <li class="pure-menu-item"><a href="#summary-sensor-information" class="pure-menu-link">Sensor
+                        Information</a></li>
                     <li class="pure-menu-item"><a href="#" class="pure-menu-link">Camera Overlap</a></li>
                     <li class="pure-menu-heading">
                         <span class="pure-menu-tag">
@@ -266,8 +271,534 @@
                 </div>
             </div>
         </div>
+        <div id="metrics" class="main-stats">
+            <div class="pure-g">
+                <div class="main-stats-header pure-u-1-1">
+                    <h2>Remote Sensing</h2>
+                    <p>metrics</p>
+                </div>
+                <div id="metrics-rgb" class="main-stats-container pure-u-1-1">
+                    <div class="main-stats-sub-header pure-u-1-1">
+                        <h3>RGB - Visible Color</h3>
+                    </div>
+                    <div class="pure-g main-stats-container">
+                        <div class="pure-u-1-2">
+                            <div id="metrics_rgb">
+                                <div class="main-stats-sub-header-diagram pure-u-1-1">
+                                    <h3>Histogram</h3>
+                                </div>
+                                <div id="histogram-rgb" style="width:95%; height: 250px;"></div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <div class="main-stats-sub-header-diagram pure-u-1-1">
+                                <h3>Color Score</h3>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-1] Red</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 45 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>10073 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-2] Red</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 46 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>10022 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-1] Green</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 46 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>8926 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-2] Green</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 49 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>8880 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-1] Blue</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 33 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>11987 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-2] Blue</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 32 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>11868 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="metrics-ndvi" class="main-stats-container pure-u-1-1">
+                    <div class="main-stats-sub-header pure-u-1-1">
+                        <h3>RGB - Visible Color</h3>
+                    </div>
+                    <div class="pure-g main-stats-container">
+                        <div class="pure-u-1-2">
+                            <div id="metrics_ndvi">
+                                <div class="main-stats-sub-header-diagram pure-u-1-1">
+                                    <h3>Histogram</h3>
+                                </div>
+                                <div id="histogram-ndvi" style="width:95%; height: 250px;"></div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <div class="main-stats-sub-header-diagram pure-u-1-1">
+                                <h3>Color Score</h3>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-1] Red</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 45 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>10073 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-2] Red</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 46 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>10022 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-1] Green</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 46 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>8926 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-2] Green</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 49 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>8880 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-1] Blue</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 33 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>11987 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pure-u-1-1">
+                                    <div class="main-stats-sub-header pure-g">
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Tail No</h5>
+                                            <h2>[-2] Blue</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Decimal Code</h5>
+                                            <h2>/ 32 /</h2>
+                                        </div>
+                                        <div class="pure-u-1-3">
+                                            <h5>Color Score</h5>
+                                            <h2>11868 points</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-</div>
+    <script>
+        $(document).ready(function () {
+            function rgb () {
+                let ID = "#histogram-rgb";
+
+                let opacity_style = 0.6;
+                let red_style_color = "#FF1C00";
+                let green_style_color = "#3CB371";
+                let blue_style_color = "#2A52BE";
+
+                let margin = {top: 0, right: 0, bottom: 0, left: 0};
+                let width = (parseInt(d3.select(ID).style("width")) - margin.left - margin.right);
+                let height = parseInt(d3.select(ID).style("height")) - margin.top - margin.bottom;
+
+                let xScale = d3.scale.ordinal().rangeRoundBands([0, width], 0.03);
+                let yScale = d3.scale.linear()
+                    .range([height, 0]);
+
+
+                let xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .orient("bottom");
+                let yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+                let svgContainer = d3.select(ID).append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ") scale(0.9)");
+
+                d3.csv("csv/histogram-rgb.csv", function (data) {
+
+                    xScale.domain(data.map(function (d) {
+                        return d.bins;
+                    }));
+                    yScale.domain([0, data[0].max]);
+
+                    yAxis.ticks(10).tickFormat(function (d) {
+                        return d * 1
+                    }, "+%");
+
+                    xAxis.tickValues(xScale.domain().filter(function(d,i) {
+                        console.log(i);
+                        return !(i%51);
+                    } ));
+
+                    let xAxis_g = svgContainer.append("g")
+                        .attr("class", "x axis")
+                        .call(xAxis)
+                        .attr("transform", "translate(0," + (height + 10) + ")")
+                        .append("text")
+                        .attr("y", 6).attr("dy", ".71em");
+                    let yAxis_g = svgContainer.append("g")
+                        .attr("class", "y axis")
+                        .call(yAxis)
+                        .attr("transform", "translate("+ 35 +", 0)")
+                        .append("text")
+                        .attr("transform", "rotate(-90)")
+                        .attr("y", 6).attr("dy", ".71em");
+
+                    svgContainer.selectAll("path")
+                        .style("stroke", "#4F4F4F");
+
+                    svgContainer.selectAll("text")
+                        .style("fill", "#4F4F4F");
+
+                    svgContainer.selectAll(".bar red")
+                        .data(data)
+                        .enter()
+                        .append("rect")
+                        .attr("class", "bar red")
+                        .attr("x", function (d) {
+                            return xScale(d.bins);
+                        })
+                        .attr("width", xScale.rangeBand())
+                        .attr("y", function (d) {
+                            return yScale(d.red);
+                        })
+                        .attr("height", function (d) {
+                            return height - yScale(d.red);
+                        })
+                        .style("fill",red_style_color)
+                        .style("opacity", opacity_style);
+
+                    svgContainer.selectAll(".bar green")
+                        .data(data)
+                        .enter()
+                        .append("rect")
+                        .attr("class", "bar blue")
+                        .attr("x", function (d) {
+                            return xScale(d.bins);
+                        })
+                        .attr("width", xScale.rangeBand())
+                        .attr("y", function (d) {
+                            return yScale(d.green);
+                        })
+                        .attr("height", function (d) {
+                            return height - yScale(d.green);
+                        })
+                        .style("fill", green_style_color)
+                        .style("opacity", opacity_style);
+
+                    svgContainer.selectAll(".bar blue")
+                        .data(data)
+                        .enter()
+                        .append("rect")
+                        .attr("class", "bar blue")
+                        .attr("x", function (d) {
+                            return xScale(d.bins);
+                        })
+                        .attr("width", xScale.rangeBand())
+                        .attr("y", function (d) {
+                            return yScale(d.blue);
+                        })
+                        .attr("height", function (d) {
+                            return height - yScale(d.blue);
+                        })
+                        .style("fill", blue_style_color)
+                        .style("opacity", opacity_style);
+                });
+
+                function resize() {
+                    console.log('----resize function----');
+                    // update width
+                    width = parseInt(d3.select(ID).style('width'), 10);
+                    width = width - margin.left - margin.right;
+
+                    height = parseInt(d3.select("#histogram-r").style("height"));
+                    height = height - margin.top - margin.bottom;
+                    // resize the chart
+
+                    xScale.range([0, width]);
+                    xScale.rangeRoundBands([0, width], .03);
+                    yScale.range([height, 0]);
+
+                    yAxis.ticks(Math.max(height / 50, 2));
+                    xAxis.ticks(Math.max(width / 50, 2));
+
+                    d3.select(svgContainer.node().parentNode)
+                        .style('width', (width + margin.left + margin.right) + 'px');
+
+                    svgContainer.selectAll('.bar')
+                        .attr("x", function (d) {
+                            return xScale(d.bins);
+                        })
+                        .attr("width", xScale.rangeBand());
+                }
+
+                document.addEventListener("DOMContentLoaded", resize);
+                d3.select(window).on('resize', resize);
+            }
+            function ndvi () {
+                let ID = "#histogram-ndvi";
+
+                let opacity_style = 0.6;
+                let red_style_color = "#FF1C00";
+                let green_style_color = "#3CB371";
+                let blue_style_color = "#2A52BE";
+
+                let margin = {top: 0, right: 0, bottom: 0, left: 0};
+                let width = (parseInt(d3.select(ID).style("width")) - margin.left - margin.right);
+                let height = parseInt(d3.select(ID).style("height")) - margin.top - margin.bottom;
+
+                let xScale = d3.scale.ordinal().rangeRoundBands([0, width], 0.03);
+                let yScale = d3.scale.linear()
+                    .range([height, 0]);
+
+
+                let xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .orient("bottom");
+                let yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+
+                let svgContainer = d3.select(ID).append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ") scale(0.9)");
+
+                d3.csv("csv/histogram-rgb.csv", function (data) {
+
+                    xScale.domain(data.map(function (d) {
+                        return d.bins;
+                    }));
+                    yScale.domain([0, data[0].max]);
+
+                    yAxis.ticks(10).tickFormat(function (d) {
+                        return d * 1
+                    }, "+%");
+
+                    xAxis.tickValues(xScale.domain().filter(function(d,i) {
+                        console.log(i);
+                        return !(i%51);
+                    } ));
+
+                    let xAxis_g = svgContainer.append("g")
+                        .attr("class", "x axis")
+                        .call(xAxis)
+                        .attr("transform", "translate(0," + (height + 10) + ")")
+                        .append("text")
+                        .attr("y", 6).attr("dy", ".71em");
+                    let yAxis_g = svgContainer.append("g")
+                        .attr("class", "y axis")
+                        .call(yAxis)
+                        .attr("transform", "translate("+ 35 +", 0)")
+                        .append("text")
+                        .attr("transform", "rotate(-90)")
+                        .attr("y", 6).attr("dy", ".71em");
+
+                    svgContainer.selectAll("path")
+                        .style("stroke", "#4F4F4F");
+
+                    svgContainer.selectAll("text")
+                        .style("fill", "#4F4F4F");
+
+                    svgContainer.selectAll(".bar ndvi")
+                        .data(data)
+                        .enter()
+                        .append("rect")
+                        .attr("class", "bar ndvi")
+                        .attr("x", function (d) {
+                            return xScale(d.bins);
+                        })
+                        .attr("width", xScale.rangeBand())
+                        .attr("y", function (d) {
+                            return yScale(d.red);
+                        })
+                        .attr("height", function (d) {
+                            return height - yScale(d.red);
+                        })
+                        .style("fill",red_style_color)
+                        .style("opacity", opacity_style);
+
+                });
+
+                function resize() {
+                    console.log('----resize function----');
+                    // update width
+                    width = parseInt(d3.select(ID).style('width'), 10);
+                    width = width - margin.left - margin.right;
+
+                    height = parseInt(d3.select("#histogram-r").style("height"));
+                    height = height - margin.top - margin.bottom;
+                    // resize the chart
+
+                    xScale.range([0, width]);
+                    xScale.rangeRoundBands([0, width], .03);
+                    yScale.range([height, 0]);
+
+                    yAxis.ticks(Math.max(height / 50, 2));
+                    xAxis.ticks(Math.max(width / 50, 2));
+
+                    d3.select(svgContainer.node().parentNode)
+                        .style('width', (width + margin.left + margin.right) + 'px');
+
+                    svgContainer.selectAll('.bar')
+                        .attr("x", function (d) {
+                            return xScale(d.bins);
+                        })
+                        .attr("width", xScale.rangeBand());
+                }
+
+                document.addEventListener("DOMContentLoaded", resize);
+                d3.select(window).on('resize', resize);
+            }
+
+            rgb();
+            ndvi();
+        });
+    </script>
 </div>
 
 
