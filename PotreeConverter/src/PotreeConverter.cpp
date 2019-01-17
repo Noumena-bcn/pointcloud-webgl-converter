@@ -160,26 +160,41 @@ void PotreeConverter::generatePage(string name){
 	string pagedir = this->workDir;
     string templateSourcePath = this->executablePath + "/resources/page_template/viewer_template.html";
     string mapTemplateSourcePath = this->executablePath + "/resources/page_template/lasmap_template.html";
-    string templateDir = this->executablePath + "/resources/page_template";
+	string statsTemplateSourcePath = this->executablePath + "/resources/page_template/stats_template.html";
+
+	string templateDir = this->executablePath + "/resources/page_template";
 
         if(!this->pageTemplatePath.empty()) {
 		templateSourcePath = this->pageTemplatePath + "/viewer_template.html";
 		mapTemplateSourcePath = this->pageTemplatePath + "/lasmap_template.html";
+		statsTemplateSourcePath = this->pageTemplatePath + "/stats_template.html";
 		templateDir = this->pageTemplatePath;
 	}
 
 	string templateTargetPath = pagedir + "/" + name + ".html";
 	string mapTemplateTargetPath = pagedir + "/lasmap_" + name + ".html";
+	string statsTemplateTargetPath = pagedir + "stats.html";
+    string svcTemplateTargetPath = pagedir + "/csv";
 
-    Potree::copyDir(fs::path(templateDir), fs::path(pagedir));
+
+
+	Potree::copyDir(fs::path(templateDir), fs::path(pagedir));
 	fs::remove(pagedir + "/viewer_template.html");
 	fs::remove(pagedir + "/lasmap_template.html");
+	fs::remove(pagedir + "/stats_template.html");
+
+	Potree::copyDir(fs::path(this->csvdir), fs::path(svcTemplateTargetPath));
+
 
 	if(!this->sourceListingOnly){ // change viewer template
 		ifstream in( templateSourcePath );
+		ifstream infile( statsTemplateSourcePath );
+
 		ofstream out( templateTargetPath );
 
 		string line;
+		string text;
+
 		while(getline(in, line)){
 			if(line.find("<!-- INCLUDE POINTCLOUD -->") != string::npos){
 				out << "\t\tPotree.loadPointCloud(\"pointclouds/" << name << "/cloud.js\", \"" << name << "\", e => {" << endl;
@@ -195,9 +210,12 @@ void PotreeConverter::generatePage(string name){
 
 				out << "\t\t\tviewer.fitToScreen();" << endl;
 				out << "\t\t});" << endl;
-			}else if(line.find("<!-- INCLUDE SETTINGS HERE -->") != string::npos){
+			}
+			else if(line.find("<!-- INCLUDE SETTINGS HERE -->") != string::npos){
 				out << std::boolalpha;
 				out << "\t\t" << "document.title = \"" << title << "\";\n";
+				out << "\t\t" << "document.getElementsByTagName('META')[1].content = \"" << descriptionPage << "\";\n";
+				out << "\t\t" << "document.getElementsByTagName('META')[2].content = \"" << autorPage << "\";\n";
 				out << "\t\t" << "viewer.setEDLEnabled(" << edlEnabled << ");\n";
 //				if(showSkybox){
 //					out << "\t\t" << "viewer.setBackground(\"skybox\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
@@ -226,7 +244,14 @@ void PotreeConverter::generatePage(string name){
 				std::replace(descriptionEscaped.begin(), descriptionEscaped.end(), '`', '\'');
 
 				out << "\t\t" << "viewer.setDescription(`" << descriptionEscaped << "`);\n";
-			}else{
+			}
+			else if(line.find("<!-- INCLUDE STATS HERE -->") != string::npos) {
+				while(!infile.eof()) {
+					getline(infile, text);
+					out << text << "\n";
+				}
+			}
+			else{
 				out << line << endl;
 			}
 			
@@ -290,7 +315,7 @@ void writeSources(string path, vector<string> sourceFilenames, vector<int> numPo
 
 	Value jSources(rapidjson::kObjectType);
 	jSources.SetArray();
-	for(int i = 0; i < sourceFilenames.size(); i++){
+	for(int i = 0; i < static_cast<int>(sourceFilenames.size()); i++){
 		string &source = sourceFilenames[i];
 		int points = numPoints[i];
 		AABB boundingBox = boundingBoxes[i];

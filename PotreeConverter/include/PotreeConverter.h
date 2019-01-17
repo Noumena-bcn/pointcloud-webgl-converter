@@ -51,7 +51,9 @@ public:
 	bool sourceListingOnly = false;
 	ConversionQuality quality = ConversionQuality::DEFAULT;
 	string title = "Noumena PointCloud Viewer";
-	string description = "";
+	string autorPage = "Noumena.io";
+    string descriptionPage = "http://noumena.io";
+    string description = "";
 	bool edlEnabled = false;
 //	bool showSkybox = false;
 	int backgroundType = 2;
@@ -59,6 +61,10 @@ public:
     string executablePath;
 	int storeSize = 20'000;
 	int flushLimit = 10'000'000;
+    string csvdir = "";
+	string csvrgba = "";
+	string csvndvi = "";
+	string csvthrm = "";
 
     PotreeConverter(string executablePath, string workDir, vector<string> sources);
 		

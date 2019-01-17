@@ -1,0 +1,486 @@
+/* CSS - Cascading Style Sheet */
+/* Palette color codes */
+
+@font-face {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: x-large;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: medium;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: small;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: x-small;
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: x-small;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: small;
+}
+
+a {
+    text-decoration: none;
+}
+
+:root {
+    background: black;
+}
+
+/*FONT STYLE*/
+.navMenu_button {
+    font-family: 'Roboto', sans-serif;
+    font-size: small;
+    color: white;
+}
+
+#pointcloudWebGL_stats_container {
+    font-size: 85%;
+}
+
+#nav-stats {
+    text-align: center;
+    font-size: 110%;
+}
+
+#nav-stats .pure-menu {
+    text-align: left;
+}
+
+.pure-menu-tag-small {
+    font-size: 20%;
+}
+
+.main-stats-sub-header h3 {
+    margin: 0.3em;
+}
+
+.main-stats-content h3 {
+    padding-bottom: 1em;
+}
+
+#summary h1,
+#summary h2,
+#summary h3,
+#report h1,
+#report h2,
+#report h3,
+#metrics h1,
+#metrics h2,
+#metrics h3 {
+    color: white;
+    margin: 0.01em 0.5em;
+}
+
+#summary h4,
+#report h4,
+#metrics h4 {
+    color: white;
+
+    padding-bottom: 1em;
+    margin: 0.01em 0.5em;
+
+    font-size: x-small;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+#summary h5,
+#report h5,
+#metrics h5 {
+    color: #4F4F4F;
+
+    margin: 0.01em 0.9em;
+
+    font-size: x-small;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+#summary p,
+#report p,
+#metrics p{
+    color: #4F4F4F;
+
+    margin: 0.01em 0.9em;
+
+    text-transform: uppercase;
+}
+
+/*COLOR STYLE*/
+.navMenu_button {
+    background: transparent;
+
+    border-color: #FFFFFF;
+    border-width: 0 0 3px 0;
+}
+
+.pointcloudWebGL_nav {
+    background: #000000;
+}
+
+#pointcloudWebGL_stats_container {
+    background-color: #000000;
+    opacity: 0.97;
+}
+
+
+#nav-stats {
+    background: #0D0D0D;
+    color: #4F4F4F;
+
+    border-bottom: none;
+}
+
+#nav-stats .pure-menu {
+    background: transparent;
+
+    border: none;
+}
+
+#nav-stats .pure-menu-link {
+    color: #FFFFFF;
+
+    margin: 0.3em;
+
+    border: 1px solid #00000000;
+}
+
+#map {
+    outline: none;
+}
+
+.pure-menu-tag {
+    border-left: 1px solid #FFFFFF;
+}
+
+.main-stats-container {
+    background: #0D0D0D;
+}
+
+.main-stats-header {
+    border-left: 1px solid #FFFFFF;
+}
+
+/*COLOR STYLE: FOCUS: HOVER*/
+
+.navMenu_button:focus {
+    outline: 0;
+}
+
+.navMenu_button:hover {
+    border-color: #1B3753;
+    border-width: 0 0 3px 0;
+}
+
+#nav-stats .pure-menu-link:focus {
+    background: #0B1621;
+
+    border: 1px solid #1B3753;
+}
+
+#nav-stats .pure-menu-link:hover {
+    background: #00000000;
+
+    border: 1px solid #FFFFFF;
+}
+
+/*GRID STYLE*/
+.navMenu_button {
+    cursor: pointer;
+}
+
+.nav-stats-inner {
+    /* Don't show the navigation items... */
+    display: none;
+}
+
+.pointcloudWebGL_col_container, .stats_col_container {
+    display: flex;
+
+    flex-wrap: nowrap;
+}
+
+.pointcloudWebGL_col_column, .stats_col_column {
+    padding: 2px;
+
+    flex: 1 1;
+}
+
+.pointcloudWebGL_nav {
+    position: absolute;
+
+    width: 100%;
+    height: 10%;
+
+    top:0;
+
+    z-index: 2;
+}
+
+.potree_container {
+    width: 100%;
+    height: 90%;
+
+    top: 10%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    position: absolute;
+}
+
+#potree_sidebar_container {
+    -webkit-transition: right .35s;
+    transition: right .35s;
+}
+
+#potree_render_area {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    position: absolute;
+
+    overflow: hidden;
+
+    z-index: 0;
+
+    -webkit-transition: right .35s;
+    transition: right .35s;
+}
+
+#pointcloudWebGL_stats_container {
+    height: 100%;
+    width: 350px;
+
+
+    position: absolute;
+
+    overflow-y: auto;
+    /*overflow: hidden;*/
+
+    z-index: 1;
+
+    -webkit-transition: top .35s;
+    transition: top .35s;
+}
+
+#page-stats {
+    height: 100%;
+}
+
+.stats_col_container {
+    padding: 0 10%;
+}
+
+#nav-stats {
+    /* Make the navigation 100% width on phones */
+    height: 40px;
+    width: 100%;
+
+    position: relative;
+}
+
+.main-stats {
+    padding: .5em 1em;
+}
+
+.main-stats-content {
+    padding: 0 auto;
+    margin: 0.5em 0;
+}
+
+.main-stats-container {
+    padding: 1em;
+    margin: 1em;
+}
+
+.main-stats-sub-header {
+    padding: 0.5em 1em 0 0;
+}
+
+.main-stats-sub-header-diagram{
+    padding: 0.5em 0 0.5em 0;
+}
+
+#nav-stats .pure-menu-link {
+    padding: .4em 1em;
+}
+
+#page-stats, #nav-stats, #main-stats {
+    padding: 0;
+    margin: 0;
+}
+
+#nav-stats .nav-stats-menu-button {
+    top: 0.5em;
+    right: 0.5em;
+
+    position: absolute;
+
+    display: block;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+
+    position: relative;
+}
+
+#metrics {
+    padding-top: 5em;
+}
+
+.pure-menu-tag {
+    padding: 0.2em 0.5em;
+
+    display: block;
+}
+
+.center-flex {
+    display: flex;
+
+    align-items: center;
+}
+
+.break-flex {
+    padding: 1em 0;
+}
+
+/*GRID STYLE: ACTIVE*/
+#nav-stats.active {
+    /* When "Menu" is clicked, the navbar should be 80% height */
+    height: 80%;
+}
+
+#nav-stats.active .nav-stats-inner {
+    /* ...until the "Menu" button is clicked */
+    padding: 2em 0;
+
+    display: block;
+}
+
+
+/* -- TABLETS -- */
+@media (min-width: 40em) {
+
+    #page-stats {
+        position: relative;
+    }
+
+    #nav-stats {
+        top: 0;
+        bottom: 0;
+        overflow: auto;
+        width: 230px;
+        height: 100%;
+    }
+
+    .nav-stats-inner {
+        display: block;
+        padding: 1em 0;
+    }
+
+    /* Hide the "Menu" button on larger screens */
+    #nav-stats .nav-menu-button {
+        display: none;
+    }
+
+    #main-stats {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 230px;
+        overflow: auto;
+        width: auto; /* so that it's not 100% */
+    }
+}
+
+/* -- DESKTOPS -- */
+@media (min-width: 60em) {
+
+    /* This will now take up it's own column, so don't need position: fixed; */
+    #main-stats {
+        position: absolute;
+        top: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+.link {
+    stroke: #999;
+    stroke-opacity: .6;
+}
+
+.q0-9 { fill:rgb(247,251,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
+
+.area {
+    fill: #567656;
+    clip-path: url(#clip);
+}
+
+.area2 {
+    fill: #76626C;
+    clip-path: url(#clip);
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.brush .extent {
+    stroke: #fff;
+    fill-opacity: .125;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    stroke: #18bc9c;
+    stroke-width: 4px;
+}
+

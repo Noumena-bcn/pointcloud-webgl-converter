@@ -5,7 +5,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<title>Potree Viewer</title>
+	<title>-</title>
 
 	<link rel="stylesheet" type="text/css" href="libs/potree/potree.css">
 	<link rel="stylesheet" type="text/css" href="libs/jquery-ui/jquery-ui.min.css">
@@ -13,6 +13,11 @@
 	<link rel="stylesheet" type="text/css" href="libs/openlayers3/ol.css">
 	<link rel="stylesheet" type="text/css" href="libs/spectrum/spectrum.css">
 	<link rel="stylesheet" type="text/css" href="libs/jstree/themes/mixed/style.css">
+	<link rel="stylesheet" type="text/css" href="libs/pure-release-1.0.0/pure-min.css">
+	<link rel="stylesheet" type="text/css" href="libs/pure-release-1.0.0/grids-responsive-min.css">
+	<link rel="stylesheet" type="text/css" href="libs/pointcloudWebGL/pointcloudWebGL.css">
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.css' rel='stylesheet' />
+	<link rel="stylesheet" type="text/css" href="libs/leaflet/leaflet.css">
 </head>
 
 <body>
@@ -31,13 +36,16 @@
 	<script src="libs/potree/potree.js"></script>
 	<script src="libs/plasio/js/laslaz.js"></script>
 	<script src="libs/pointcloudWebGL/pointcloudWebGL.js"></script>
-
-	<!-- INCLUDE ADDITIONAL DEPENDENCIES HERE -->
-	<!-- INCLUDE SETTINGS HERE -->
-	
-	<div class="potree_container" style="position: absolute; width: 100%; height: 100%; left: 0px; top: 0px; ">
+	<script src="libs/pointcloudWebGL/pointcloudWebGLToolkit.js"></script>
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.52.0/mapbox-gl.js'></script>
+	<script src="libs/leaflet/leaflet.js"></script>
+	<div class="pointcloudWebGL_nav pointcloudWebGL_col_container" id="pointcloudWebGL_nav_container"></div>
+	<div class="potree_container">
+		<div id="potree_sidebar_container"></div>
 		<div id="potree_render_area"></div>
-		<div id="potree_sidebar_container"> </div>
+		<div id="pointcloudWebGL_stats_container">
+			<!-- INCLUDE STATS HERE -->
+		</div>
 	</div>
 	
 	<script>
@@ -59,7 +67,6 @@
 		});
 		
 		<!-- INCLUDE POINTCLOUD -->
-		
 	</script>
 	
 	
