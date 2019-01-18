@@ -65,6 +65,8 @@ public:
 	string csvrgba = "";
 	string csvndvi = "";
 	string csvthrm = "";
+    string jsondir = "";
+    string jsonstats = "";
 
     PotreeConverter(string executablePath, string workDir, vector<string> sources);
 		

@@ -74,6 +74,9 @@ struct PotreeArguments {
     string csvrgba = "";
     string csvndvi = "";
     string csvthrm = "";
+    string jsondir;
+    string jsonstats = "";
+
 };
 
 PotreeArguments parseArguments(int argc, char **argv) {
@@ -118,6 +121,7 @@ PotreeArguments parseArguments(int argc, char **argv) {
                      "A node is split once more than store-size points are added. Reduce for better results at cost of performance. Default is 20000");
     args.addArgument("flush-limit", "Flush after X points. Default is 10000000");
     args.addArgument("csvdir,csv", "csvdir");
+    args.addArgument("jsondir,json", "jsondir");
 
 
     PotreeArguments a;
@@ -306,7 +310,7 @@ PotreeArguments parseArguments(int argc, char **argv) {
             _csvdir = args.get("csvdir").as<string>();
         } else {
             auto csvAbsolutePath = fs::canonical(fs::system_complete(a.source[0]));
-            string _csvdir = csvAbsolutePath.parent_path().string() + "/csv";
+            _csvdir = csvAbsolutePath.parent_path().string() + "/csv";
         }
 
         if (fs::exists(_csvdir)) {
@@ -331,19 +335,65 @@ PotreeArguments parseArguments(int argc, char **argv) {
             }
             if (a.csvrgba.empty()) {
                 cout << "========================" << endl;
-                cout << "PROBLEM: MISSING CSV: histogram-ndvi.csv" << endl;            } else {
+                cout << "PROBLEM: MISSING CSV: histogram-ndvi.csv" << endl;
+                exit(1);
             }
             if (a.csvndvi.empty()) {
                 cout << "========================" << endl;
                 cout << "PROBLEM: MISSING CSV: histogram-ndvi.csv" << endl;
+                exit(1);
             }
             if (a.csvthrm.empty()) {
                 cout << "========================" << endl;
                 cout << "PROBLEM: MISSING CSV: histogram-thrm.csv" << endl;
+                exit(1);
             }
         } else {
             cout << "========================" << endl;
             cout << "PROBLEM - NOT CSV FOLDER " << endl;
+            exit(1);
+        }
+
+    } catch (const fs::filesystem_error &e) {
+        cout << "========================" << endl;
+        cout << "ERROR: " << e.what() << endl;
+        exit(1);
+    }
+
+    try {
+        string _jsondir;
+
+        if (args.has("jsondir")) {
+            _jsondir = args.get("jsondir").as<string>();
+        } else {
+            auto csvAbsolutePath = fs::canonical(fs::system_complete(a.source[0]));
+            _jsondir = csvAbsolutePath.parent_path().string() + "/json";
+        }
+
+        if (fs::exists(_jsondir)) {
+            a.jsondir = _jsondir;
+
+            for (const auto &entry : fs::directory_iterator(a.jsondir)) {
+
+                if (fs::path(entry.path()).is_absolute()) {
+                    string jsonpath = entry.path();
+                    string jsonname = fs::path(jsonpath).filename();
+
+                    auto jsonStatsAbsolutePath = fs::canonical(fs::system_complete(jsonpath));
+
+                    if (jsonname == "stats.json") {
+                        a.jsonstats = jsonStatsAbsolutePath;
+                    }
+                }
+            }
+            if (a.jsonstats.empty()) {
+                cout << "========================" << endl;
+                cout << "PROBLEM: MISSING JSON: stats.json" << endl;
+                exit(1);
+            }
+        } else {
+            cout << "========================" << endl;
+            cout << "PROBLEM - NOT JSON FOLDER " << endl;
             exit(1);
         }
 
@@ -369,6 +419,7 @@ void printArguments(PotreeArguments &a) {
             ++i;
         }
         cout << "csvdir:        	\t" << a.csvdir << endl;
+        cout << "jsondir:           \t" << a.jsondir << endl;
         cout << "outdir:            \t" << a.outdir << endl;
         cout << "spacing:           \t" << a.spacing << endl;
         cout << "diagonal-fraction: \t" << a.diagonalFraction << endl;
@@ -425,9 +476,11 @@ int main(int argc, char **argv) {
         pc.storeSize = a.storeSize;
         pc.flushLimit = a.flushLimit;
         pc.csvdir = a.csvdir;
-        pc.csvrgba = "";
-        pc.csvndvi = "";
-        pc.csvthrm = "";
+        pc.csvrgba = a.csvrgba;
+        pc.csvndvi = a.csvndvi;
+        pc.csvthrm = a.csvthrm;
+        pc.jsondir = a.jsondir;
+        pc.jsonstats = a.jsonstats;
 
         pc.convert();
     } catch (exception &e) {

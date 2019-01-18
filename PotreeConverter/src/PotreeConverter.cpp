@@ -174,7 +174,9 @@ void PotreeConverter::generatePage(string name){
 	string templateTargetPath = pagedir + "/" + name + ".html";
 	string mapTemplateTargetPath = pagedir + "/lasmap_" + name + ".html";
 	string statsTemplateTargetPath = pagedir + "stats.html";
-    string svcTemplateTargetPath = pagedir + "/csv";
+    string csvTemplateTargetPath = pagedir + "/csv";
+	string jsonTemplateTargetPath = pagedir + "/json";
+
 
 
 
@@ -183,7 +185,9 @@ void PotreeConverter::generatePage(string name){
 	fs::remove(pagedir + "/lasmap_template.html");
 	fs::remove(pagedir + "/stats_template.html");
 
-	Potree::copyDir(fs::path(this->csvdir), fs::path(svcTemplateTargetPath));
+	Potree::copyDir(fs::path(this->csvdir), fs::path(csvTemplateTargetPath));
+	Potree::copyDir(fs::path(this->jsondir), fs::path(jsonTemplateTargetPath));
+
 
 
 	if(!this->sourceListingOnly){ // change viewer template
