@@ -1,0 +1,242 @@
+{
+  "name": "json",
+  "pointcloud": {
+    "id": 5,
+    "author": "noumena.io",
+    "application": "pointcloud-webgl-converter",
+    "timestamp": "2019-01-18"
+  },
+  "summary": {
+    "information": {
+      "address": "passeig de sant joan (alibei - ausias marc)",
+      "localization": "41.392667, 2.178529",
+      "date": "2017-10-30",
+      "time": "12:10",
+      "duration": "T2:14:00",
+      "perimeter": {
+        "value": 261.0,
+        "unit": "mts"
+      },
+      "area": {
+        "value": 3100,
+        "unit": "mts"
+      },
+      "cameras": {
+        "perimeter": {
+          "id": "route",
+          "type": "line",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    2.178098,
+                    41.393159
+                  ],
+                  [
+                    2.177900,
+                    41.392958
+                  ],
+                  [
+                    2.178929,
+                    41.392201
+                  ],
+                  [
+                    2.179117,
+                    41.392370
+                  ],
+                  [
+                    2.178098,
+                    41.393159
+                  ]
+                ]
+              }
+            }
+          },
+          "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": "#FFFFFF",
+            "line-width": 5
+          }
+        },
+        "path": {
+          "id": "route",
+          "type": "line",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "Feature",
+              "properties": {},
+              "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                  [
+                    2.178098,
+                    41.393159
+                  ],
+                  [
+                    2.177900,
+                    41.392958
+                  ],
+                  [
+                    2.178929,
+                    41.392201
+                  ],
+                  [
+                    2.179117,
+                    41.392370
+                  ],
+                  [
+                    2.178098,
+                    41.393159
+                  ]
+                ]
+              }
+            }
+          },
+          "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": "#FFFFFF",
+            "line-width": 5
+          }
+        },
+        "points": {
+          "id": "points",
+          "type": "symbol",
+          "source": {
+            "type": "geojson",
+            "data": {
+              "type": "FeatureCollection",
+              "features": [
+                {
+                  "type": "Feature",
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                      2.178098,
+                      41.393159
+                    ]
+                  },
+                  "properties": {
+                    "icon": "triangle-stroked-11"
+                  }
+                },
+                {
+                  "type": "Feature",
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [
+                      2.177900,
+                      41.392958
+                    ]
+                  },
+                  "properties": {
+                    "icon": "triangle-stroked-11"
+                  }
+                }
+              ]
+            }
+          },
+          "layout": {
+            "line-join": "round",
+            "line-cap": "round"
+          },
+          "paint": {
+            "line-color": "#FFFFFF",
+            "line-width": 5
+          }
+        }
+      }
+    }
+  },
+  "report": {
+    "processing": {
+      "pointcloud": {
+        "points": {
+          "value": 1807473,
+          "size": 1980628
+        },
+        "rmsReprojectedError:": {
+          "value": 0.15745,
+          "pix": 0.369343
+        },
+        "maxReprojectedError:": {
+          "value": 0.479672,
+          "pix": 16.1732
+        }
+      },
+      "alignment": {
+        "points": {
+          "keyPointLimit": 100000,
+          "tiePointLimit": 10000
+        },
+        "adaptiveCameraModelFitting:": {
+          "value": true
+        },
+        "alignmentTime": {
+          "value": "T0:44:21"
+        }
+      },
+      "depthMaps": {
+        "maps": {
+          "value": 175,
+          "size": 178
+        },
+        "quality": {
+          "value": "ultra high"
+        },
+        "filtering mode": {
+          "value": "aggressive"
+        },
+        "processingTime": {
+          "value": "T1:32:1"
+        }
+      },
+      "dense": {
+        "points": {
+          "value": 4075720,
+          "size": 1807473
+        },
+        "quality": {
+          "value": "ultra high"
+        },
+        "filtering mode": {
+          "value": "aggressive"
+        },
+        "processingTime": {
+          "value": "T0:52:20"
+        }
+      }
+    },
+    "survey": {
+      "date": "2018-10-30",
+      "groundResolution": {
+        "value": 2.7,
+        "unit": "cm-pix"
+      },
+      "cameraStations": {
+        "value": 3.98,
+        "unit": "mm"
+      },
+      "tiePoints": {
+        "value": [
+          3.75,
+          3.75
+        ],
+        "unit": "μm"
+      }
+    }
+  },
+  "metrics": {
+  }
+}
