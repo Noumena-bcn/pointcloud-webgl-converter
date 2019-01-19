@@ -61,7 +61,7 @@ struct PotreeArguments {
     string title = "Noumena PointCloud Viewer";
     string description = "";
 
-    string autorPage = "Noumena.io";
+    string authorPage = "Noumena.io";
     string descriptionPage = "Strategies for Point clouds and the automation of data fusion of Thermal and Muti-spectral imagery, - based building geometry model generation for web";
     bool edlEnabled = false;
 //	bool showSkybox = false;
@@ -71,11 +71,11 @@ struct PotreeArguments {
     int storeSize;
     int flushLimit;
     string csvdir;
-    string csvrgba = "";
-    string csvndvi = "";
-    string csvthrm = "";
+    string csvRGBA = "";
+    string csvNDVI = "";
+    string csvTHRM = "";
     string jsondir;
-    string jsonstats = "";
+    string jsonStats = "";
 
 };
 
@@ -253,7 +253,7 @@ PotreeArguments parseArguments(int argc, char **argv) {
     }
 
     if (args.has("autor-page")) {
-        a.autorPage = args.get("autor").as<string>();
+        a.authorPage = args.get("autor").as<string>();
     }
 
     if (args.has("description-page")) {
@@ -319,31 +319,31 @@ PotreeArguments parseArguments(int argc, char **argv) {
             for (const auto &entry : fs::directory_iterator(a.csvdir)) {
 
                 if (fs::path(entry.path()).is_absolute()) {
-                    string csvpath = entry.path();
-                    string csvname = fs::path(csvpath).filename();
+                    string csvPath = entry.path();
+                    string csvFilename = fs::path(csvPath).filename();
 
-                    auto csvhistogramAbsolutePath = fs::canonical(fs::system_complete(csvpath));
+                    auto csvhistogramAbsolutePath = fs::canonical(fs::system_complete(csvPath));
 
-                    if (csvname == "histogram-rgba.csv") {
-                        a.csvrgba = csvhistogramAbsolutePath;
-                    } else if (csvname == "histogram-ndvi.csv") {
-                        a.csvndvi = csvhistogramAbsolutePath;
-                    } else if (csvname == "histogram-thrm.csv") {
-                        a.csvthrm = csvhistogramAbsolutePath;
+                    if (csvFilename == "histogram-rgba.csv") {
+                        a.csvRGBA = csvhistogramAbsolutePath;
+                    } else if (csvFilename == "histogram-ndvi.csv") {
+                        a.csvNDVI = csvhistogramAbsolutePath;
+                    } else if (csvFilename == "histogram-thrm.csv") {
+                        a.csvTHRM = csvhistogramAbsolutePath;
                     }
                 }
             }
-            if (a.csvrgba.empty()) {
+            if (a.csvRGBA.empty()) {
                 cout << "========================" << endl;
                 cout << "PROBLEM: MISSING CSV: histogram-ndvi.csv" << endl;
                 exit(1);
             }
-            if (a.csvndvi.empty()) {
+            if (a.csvNDVI.empty()) {
                 cout << "========================" << endl;
                 cout << "PROBLEM: MISSING CSV: histogram-ndvi.csv" << endl;
                 exit(1);
             }
-            if (a.csvthrm.empty()) {
+            if (a.csvTHRM.empty()) {
                 cout << "========================" << endl;
                 cout << "PROBLEM: MISSING CSV: histogram-thrm.csv" << endl;
                 exit(1);
@@ -376,17 +376,17 @@ PotreeArguments parseArguments(int argc, char **argv) {
             for (const auto &entry : fs::directory_iterator(a.jsondir)) {
 
                 if (fs::path(entry.path()).is_absolute()) {
-                    string jsonpath = entry.path();
-                    string jsonname = fs::path(jsonpath).filename();
+                    string jsonPath = entry.path();
+                    string jsonFilename = fs::path(jsonPath).filename();
 
-                    auto jsonStatsAbsolutePath = fs::canonical(fs::system_complete(jsonpath));
+                    auto jsonStatsAbsolutePath = fs::canonical(fs::system_complete(jsonPath));
 
-                    if (jsonname == "stats.json") {
-                        a.jsonstats = jsonStatsAbsolutePath;
+                    if (jsonFilename == "stats.json") {
+                        a.jsonStats = jsonStatsAbsolutePath;
                     }
                 }
             }
-            if (a.jsonstats.empty()) {
+            if (a.jsonStats.empty()) {
                 cout << "========================" << endl;
                 cout << "PROBLEM: MISSING JSON: stats.json" << endl;
                 exit(1);
@@ -428,7 +428,7 @@ void printArguments(PotreeArguments &a) {
         cout << "scale:             \t" << a.scale << endl;
         cout << "pageName:          \t" << a.pageName << endl;
         cout << "description-page:   \t" << a.descriptionPage << endl;
-        cout << "autor-page:          \t" << a.autorPage << endl;
+        cout << "autor-page:          \t" << a.authorPage << endl;
         cout << "projection:        \t" << a.projection << endl;
         cout << endl;
     } catch (exception &e) {
@@ -468,7 +468,7 @@ int main(int argc, char **argv) {
         pc.sourceListingOnly = a.sourceListingOnly;
         pc.quality = a.conversionQuality;
         pc.title = a.title;
-        pc.autorPage = a.autorPage;
+        pc.authorPage = a.authorPage;
         pc.descriptionPage = a.descriptionPage;
         pc.edlEnabled = a.edlEnabled;
         pc.material = a.material;
@@ -476,11 +476,11 @@ int main(int argc, char **argv) {
         pc.storeSize = a.storeSize;
         pc.flushLimit = a.flushLimit;
         pc.csvdir = a.csvdir;
-        pc.csvrgba = a.csvrgba;
-        pc.csvndvi = a.csvndvi;
-        pc.csvthrm = a.csvthrm;
+        pc.csvRGBA = a.csvRGBA;
+        pc.csvNDVI = a.csvNDVI;
+        pc.csvTHRM = a.csvTHRM;
         pc.jsondir = a.jsondir;
-        pc.jsonstats = a.jsonstats;
+        pc.jsonStats = a.jsonStats;
 
         pc.convert();
     } catch (exception &e) {

@@ -219,7 +219,7 @@ void PotreeConverter::generatePage(string name){
 				out << std::boolalpha;
 				out << "\t\t" << "document.title = \"" << title << "\";\n";
 				out << "\t\t" << "document.getElementsByTagName('META')[1].content = \"" << descriptionPage << "\";\n";
-				out << "\t\t" << "document.getElementsByTagName('META')[2].content = \"" << autorPage << "\";\n";
+				out << "\t\t" << "document.getElementsByTagName('META')[2].content = \"" << authorPage << "\";\n";
 				out << "\t\t" << "viewer.setEDLEnabled(" << edlEnabled << ");\n";
 //				if(showSkybox){
 //					out << "\t\t" << "viewer.setBackground(\"skybox\"); // [\"skybox\", \"gradient\", \"black\", \"white\"];\n";
